@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { dispararSweetBasico } from "../assets/SweetAlert";
 // Crear el contexto de autenticación
 export const AuthContext = createContext();
 export function AuthProvider({ children }) {
@@ -20,7 +21,8 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('authToken');
     localStorage.removeItem('usuario');
     setUser(null);
-    setAdmin(false)
+    setAdmin(false);
+    dispararSweetBasico("Sesion Cerrada","","warning","OK");
   };
 
   function verificacionLog(){
