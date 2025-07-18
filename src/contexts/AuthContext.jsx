@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
     setUser(null);
     setAdmin(false);
     // dispararSweetBasico("Sesion Cerrada","","warning","OK");
-    toast.success("Sesion cerrada!");
+    toast.info("Hasta pronto!");
     
   };
 
