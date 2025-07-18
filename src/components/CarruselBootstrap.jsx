@@ -2,6 +2,7 @@ import { useProductosContext } from "../contexts/ProductosContext";
 import { useEffect, useState } from "react";
 import { Carousel, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import cargandoGIF from "../assets/loader.gif";
 
 function CarruselBootstrap() {
   const { productos, obtenerProductos } = useProductosContext();
@@ -17,7 +18,13 @@ function CarruselBootstrap() {
 
   const primerosTres = productos.slice(0, 5);
 
-  if (cargando) return <p className="text-center my-4">Cargando...</p>;
+  if (cargando) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ height: "300px" }}>
+        <img src={cargandoGIF} alt="Cargando..." style={{ width: "300px" }} />
+      </div>
+    );
+  }
   if (primerosTres.length === 0) return <p className="text-center my-4">No hay productos para mostrar.</p>;
 
   return (
