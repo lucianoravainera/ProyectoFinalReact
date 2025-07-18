@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import { dispararSweetBasico } from "../assets/SweetAlert";
+import { ToastContainer, toast } from "react-toastify";
 // Crear el contexto de autenticación
 export const AuthContext = createContext();
 export function AuthProvider({ children }) {
@@ -22,7 +22,9 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('usuario');
     setUser(null);
     setAdmin(false);
-    dispararSweetBasico("Sesion Cerrada","","warning","OK");
+    // dispararSweetBasico("Sesion Cerrada","","warning","OK");
+    toast.success("Sesion cerrada!");
+    
   };
 
   function verificacionLog(){
@@ -38,6 +40,8 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog }}>
       {children}
-    </AuthContext.Provider> );
+      <ToastContainer />
+    </AuthContext.Provider>
+    );
 }
 export const useAuthContext = () => useContext(AuthContext);

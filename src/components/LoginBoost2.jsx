@@ -12,15 +12,7 @@ function LoginBoost2() {
   const { login, user, logout, admin } = useAuthContext();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (usuario === "admin" && password === "1234") {
-      login(usuario);
-      navigate("/");
-    } else {
-      alert("Credenciales incorrectas");
-    }
-  };
+
 
   function registrarUsuario(e) {
     e.preventDefault();
